@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPIDER-VERSE | INTO THE MULTIVERSE</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Bebas+Neue&family=Press+Start+2P&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              spidey: {
+                red: '#E62429',
+                blue: '#004499',
+                yellow: '#F3D403',
+              },
+              miles: {
+                red: '#E62429',
+                black: '#0a0a0a',
+                pink: '#FF4D6D',
+                purple: '#BE0AFF',
+              },
+              gwen: {
+                pink: '#FF69B4',
+                cyan: '#00CED1',
+                white: '#FFFFFF',
+                black: '#1a1a2e',
+              },
+              noir: {
+                black: '#0d0d0d',
+                gray: '#2C2C2C',
+                gold: '#D4AF37',
+                white: '#e5e5e5',
+              },
+              peni: {
+                pink: '#FF6B9D',
+                cyan: '#00D4FF',
+                yellow: '#FFE66D',
+                purple: '#9D4EDD',
+              },
+              comic: {
+                ink: '#050505',
+                paper: '#F2EECB',
+              }
+            },
+            fontFamily: {
+              title: ['Bangers', 'cursive'],
+              body: ['Comic Neue', 'cursive'],
+              shout: ['Permanent Marker', 'cursive'],
+              tech: ['Share Tech Mono', 'monospace'],
+              noir: ['Special Elite', 'cursive'],
+              anime: ['Press Start 2P', 'cursive'],
+              bebas: ['Bebas Neue', 'sans-serif'],
+            },
+            backgroundImage: {
+              'halftone': 'radial-gradient(circle, #0e0e0e 2px, transparent 2.5px)',
+              'halftone-pink': 'radial-gradient(circle, #FF69B4 1.5px, transparent 2px)',
+              'noise': "url('https://www.transparenttextures.com/patterns/stardust.png')",
+              'graffiti': "url('https://www.transparenttextures.com/patterns/concrete-wall.png')",
+            },
+            boxShadow: {
+              'comic': '8px 8px 0px 0px #050505',
+              'comic-sm': '4px 4px 0px 0px #050505',
+              'comic-lg': '16px 16px 0px 0px #050505',
+              'neon-pink': '0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.4)',
+              'neon-cyan': '0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.4)',
+              'neon-red': '0 0 20px rgba(230, 36, 41, 0.8), 0 0 40px rgba(230, 36, 41, 0.4)',
+            },
+            animation: {
+              'glitch': 'glitch 1s infinite',
+              'float': 'float 3s ease-in-out infinite',
+              'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+              'dimension-shift': 'dimension-shift 0.5s ease-out',
+              'comic-pop': 'comic-pop 0.3s ease-out',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        background-color: #0a0a0a;
+        color: #ffffff;
+        overflow-x: hidden;
+        font-family: 'Comic Neue', cursive;
+      }
+
+      /* Spider-Verse Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #E62429, #FF4D6D, #00CED1);
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #FF4D6D, #E62429, #00CED1);
+      }
+
+      /* Comic Book Filters */
+      .comic-filter {
+        filter: contrast(110%) saturate(120%);
+      }
+      
+      .noir-filter {
+        filter: grayscale(100%) contrast(150%) brightness(0.8);
+      }
+      
+      .anime-filter {
+        filter: saturate(150%) contrast(105%);
+      }
+
+      /* Spider-Verse Glitch Effect */
+      .glitch-text {
+        position: relative;
+      }
+      .glitch-text::before,
+      .glitch-text::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .glitch-text::before {
+        left: 3px;
+        text-shadow: -2px 0 #FF4D6D;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim 3s infinite linear alternate-reverse;
+      }
+      .glitch-text::after {
+        left: -3px;
+        text-shadow: 2px 0 #00CED1;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim2 3s infinite linear alternate-reverse;
+      }
+
+      @keyframes glitch-anim {
+        0% { clip: rect(10px, 9999px, 30px, 0); transform: skew(0.5deg); }
+        10% { clip: rect(80px, 9999px, 100px, 0); transform: skew(-0.5deg); }
+        20% { clip: rect(40px, 9999px, 60px, 0); transform: skew(0.3deg); }
+        30% { clip: rect(20px, 9999px, 40px, 0); transform: skew(-0.3deg); }
+        40% { clip: rect(60px, 9999px, 80px, 0); transform: skew(0.2deg); }
+        50% { clip: rect(30px, 9999px, 50px, 0); transform: skew(-0.2deg); }
+        60% { clip: rect(70px, 9999px, 90px, 0); transform: skew(0.4deg); }
+        70% { clip: rect(10px, 9999px, 25px, 0); transform: skew(-0.4deg); }
+        80% { clip: rect(50px, 9999px, 70px, 0); transform: skew(0.1deg); }
+        90% { clip: rect(35px, 9999px, 55px, 0); transform: skew(-0.1deg); }
+        100% { clip: rect(45px, 9999px, 65px, 0); transform: skew(0deg); }
+      }
+      
+      @keyframes glitch-anim2 {
+        0% { clip: rect(60px, 9999px, 80px, 0); transform: skew(-0.3deg); }
+        10% { clip: rect(10px, 9999px, 20px, 0); transform: skew(0.3deg); }
+        20% { clip: rect(30px, 9999px, 50px, 0); transform: skew(-0.2deg); }
+        30% { clip: rect(70px, 9999px, 90px, 0); transform: skew(0.2deg); }
+        40% { clip: rect(20px, 9999px, 35px, 0); transform: skew(-0.4deg); }
+        50% { clip: rect(55px, 9999px, 75px, 0); transform: skew(0.4deg); }
+        60% { clip: rect(15px, 9999px, 30px, 0); transform: skew(-0.1deg); }
+        70% { clip: rect(45px, 9999px, 65px, 0); transform: skew(0.1deg); }
+        80% { clip: rect(25px, 9999px, 45px, 0); transform: skew(-0.5deg); }
+        90% { clip: rect(65px, 9999px, 85px, 0); transform: skew(0.5deg); }
+        100% { clip: rect(40px, 9999px, 60px, 0); transform: skew(0deg); }
+      }
+
+      /* Dimension Portal Effect */
+      @keyframes dimension-shift {
+        0% { transform: scale(1.2) rotate(5deg); opacity: 0; filter: blur(10px); }
+        100% { transform: scale(1) rotate(0deg); opacity: 1; filter: blur(0); }
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px currentColor; }
+        50% { box-shadow: 0 0 40px currentColor, 0 0 60px currentColor; }
+      }
+
+      @keyframes comic-pop {
+        0% { transform: scale(0.8); opacity: 0; }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      /* Halftone Pattern */
+      .halftone-overlay {
+        background-image: radial-gradient(circle, rgba(0,0,0,0.3) 1px, transparent 1px);
+        background-size: 4px 4px;
+      }
+
+      /* Comic Panel Border Styles */
+      .panel-border-peter { border: 4px solid #050505; }
+      .panel-border-miles { border: 3px solid #FF4D6D; box-shadow: 0 0 20px rgba(255, 77, 109, 0.3); }
+      .panel-border-gwen { border: 3px solid #FF69B4; }
+      .panel-border-noir { border: 2px solid #D4AF37; }
+      .panel-border-peni { border: 3px solid #00D4FF; box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
+
+      /* Graffiti Text Effect for Miles */
+      .graffiti-text {
+        text-shadow: 
+          3px 3px 0 #FF4D6D,
+          -1px -1px 0 #00CED1,
+          1px -1px 0 #BE0AFF,
+          -1px 1px 0 #FFE66D;
+      }
+
+      /* Punk Dots for Gwen */
+      .punk-dots {
+        background-image: radial-gradient(#FF69B4 2px, transparent 2px);
+        background-size: 20px 20px;
+      }
+
+      /* Film Grain for Noir */
+      .film-grain {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+      }
+
+      /* Scanlines for Peni */
+      .scanlines {
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 212, 255, 0.03) 2px,
+          rgba(0, 212, 255, 0.03) 4px
+        );
+      }
+
+      /* Dimension Portal Ring */
+      .portal-ring {
+        border-radius: 50%;
+        animation: portal-spin 4s linear infinite;
+      }
+      
+      @keyframes portal-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.24.10",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
